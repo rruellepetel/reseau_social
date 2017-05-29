@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +43,10 @@ INSTALLED_APPS = [
     'djangobower',
     'sass_processor',
     'people',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount'
 ]
 
 MIDDLEWARE = [
@@ -156,3 +161,20 @@ SASS_PROCESSOR_INCLUDE_DIRS = [
 ]
 
 BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static")
+
+GRAPPELLI_ADMIN_TITLE = "Social Network Django"
+
+AUTHENTICATION_BACKENDS = (
+
+
+   'django.contrib.auth.backends.ModelBackend',
+   'allauth.account.auth_backends.AuthenticationBackend'
+
+)
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
