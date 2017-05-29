@@ -37,10 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'people',
+
     'django_extensions',
     'djangobower',
-    'sass_processor'
+    'sass_processor',
+    'people',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'reseau_social.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'people', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'reseau_social', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,6 +124,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 
 STATICFILES_FINDERS = [
 
@@ -153,13 +156,3 @@ SASS_PROCESSOR_INCLUDE_DIRS = [
 ]
 
 BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static")
-
-SASS_PROCESSOR_ENABLED = True
-
-SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "static/sass")
-
-STATICFILES_DIRS = [
-
-   os.path.join(BASE_DIR, 'reseau_social', "static"),
-
-]
