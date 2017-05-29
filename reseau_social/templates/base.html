@@ -33,12 +33,12 @@
                         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">Link</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right vertical-center">
                         {% if request.user.is_authenticated %}
-                            Salut {{request.user.username}}
-                            <a href="{% url 'logout' %}">logout</a>
+                            <li><a href="{% url 'account_logout' %}">logout</a></li>
+                            <li><a href="#">Salut {{request.user.username}}</a></li>
                         {% else %}
-                            <a href="{% url 'login' %}">login</a>
+                            <li><a href="{% url 'account_login' %}">login</a></li>
                         {% endif %}
                     </ul>
                 </div><!-- /.navbar-collapse -->

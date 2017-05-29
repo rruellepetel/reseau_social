@@ -19,8 +19,6 @@ from django.contrib.auth.views import login, logout
 
 urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
-    url(r'^login$', login, name="login"),
-    url(r'^logout$', logout, name="logout"),
     url(r'^admin/', admin.site.urls),
     url(r'^', include('people.urls')),
     url(r'^accounts/', include('allauth.urls'))
