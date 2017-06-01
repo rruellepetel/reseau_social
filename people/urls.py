@@ -1,8 +1,8 @@
 from django.conf.urls import url
-from .views import homepage, profile
+from .views import homepage, profile_detail
 
 urlpatterns = [
-    url(r'^profile$', profile, name="profile"),
+    url(r'^profile/(?P<slug>[\w-]+)$', profile_detail, name="profile-detail"),
     url(r'^$', homepage, name="homepage"),
 
 ]

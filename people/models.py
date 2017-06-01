@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from autoslug import AutoSlugField
 from django.contrib.auth.models import User
 
 
@@ -17,3 +18,4 @@ class Profile(models.Model):
     avatar = models.ImageField(null=True)
     skills = models.CharField(max_length=1000)
     interests = models.CharField(max_length=1000)
+    
