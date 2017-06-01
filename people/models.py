@@ -5,6 +5,7 @@ from django.dispatch import receiver
 from django.db import models
 from autoslug import AutoSlugField
 from django.contrib.auth.models import User
+from taggit.managers import TaggableManager
 
 
 # Create your models here.
@@ -17,10 +18,11 @@ class Profile(models.Model):
     website = models.CharField(max_length=150, null=True, blank=True)
     contact_Email = models.EmailField(max_length=150, null=True, blank=True)
     avatar = models.ImageField(null=True, blank=True)
-    skills = models.CharField(max_length=1000, null=True, blank=True)
+    skills = TaggableManager()
     interests = models.CharField(max_length=1000, null=True, blank=True)
+
 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)
+       Profile.objects.create(user=instance)
