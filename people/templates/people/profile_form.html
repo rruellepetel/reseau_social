@@ -11,4 +11,14 @@
     <input type="submit" value="Update" />
 </form>
 
-{% endblock content %}
+{% endblock %}
+
+{% block extra_scripts %}
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#id_skills").tagsinput()
+});
+</script>
+
+{% endblock extra_scripts %}

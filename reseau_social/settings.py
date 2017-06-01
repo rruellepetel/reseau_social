@@ -151,7 +151,9 @@ BOWER_INSTALLED_APPS = (
 
    'bootstrap-sass',
 
-   'fontawesome'
+   'fontawesome',
+
+   'tagsinput',
 
 )
 
