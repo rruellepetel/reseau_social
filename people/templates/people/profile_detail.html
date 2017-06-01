@@ -2,13 +2,19 @@
 
 {%block title%}
 
-
-
 {%endblock title%}
 
 {%block content%}
-{{profile.user.username}}
-{{profile.address}}
-{{profile.zip_Code}}
+<ul>
+    <li>{{object.user.username}}</li>
+    <li>{{object.address}}</li>
+    <li>{{object.zip_Code}}</li>
+    <li>{{object.website}}</li>
+    <li>{{object.interests}}</li>
+    <li>{{object.skills}}</li>
+    <li>{{object.city}}</li>
+</ul>
+
+<a href="{% url 'profile-update' request.user.username %}">Editationnage</a>
 
 {% endblock content %}
