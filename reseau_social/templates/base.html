@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <title>{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="{% sass_src 'sass/style.scss' %}" type="text/css">
-    <link rel="stylesheet" href="{% sass_src 'bootstrap-tagsinput/dist/bootstrap-tagsinput.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'bootstrap-tagsinput/dist/bootstrap-tagsinput.css' %}" type="text/css">
 
 </head>
 
@@ -67,7 +67,7 @@
         {% endblock scripts %}
         <script src="{% static 'jquery/dist/jquery.js' %}" charset="utf-8"></script>
         <script src="{% static 'bootstrap-sass/assets/javascripts/bootstrap.min.js' %}" charset="utf-8"></script>
-        <script src="{% static 'bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js' %}" charset="utf-8"></script>
+        <script src="{% static 'bootstrap-tagsinput/dist/bootstrap-tagsinput.js' %}" charset="utf-8"></script>
         {% block extra_scripts %}
         {% endblock extra_scripts %}
     </body>
