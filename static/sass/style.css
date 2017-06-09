@@ -5820,4 +5820,14 @@ button.close {
 ul {
   list-style: none; }
 
+#id_avatar {
+  margin: 0 auto;
+  display: block; }
+
+label {
+  display: block; }
+
+.helptext {
+  display: none; }
+
 /*# sourceMappingURL=../../../../../../../../static/sass/style.css.map */

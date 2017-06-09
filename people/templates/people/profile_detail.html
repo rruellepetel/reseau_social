@@ -21,6 +21,9 @@
     <li><label>Ville : </label> {{object.city}}</li>
 </ul>
 
+{% if request.user.is_authenticated %}
+
 <a href="{% url 'profile-update' request.user.username %}">Editationnage</a>
+{% endif %}
 
 {% endblock content %}

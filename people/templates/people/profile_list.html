@@ -9,7 +9,7 @@
 {%block content%}
 <ul>
     {% for profile in profiles %}
-        <li>{{profile.user.username}} {{profile.address}}</li>
+        <li>{{profile.user.username}} {{profile.address}} {{profile.zip_Code}}</li>
     {% endfor %}
 </ul>
 
