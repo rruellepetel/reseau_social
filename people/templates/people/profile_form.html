@@ -6,7 +6,7 @@
 
 {%block content%}
 
-<form action="" method="post">{% csrf_token %}
+<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Update" />
 </form>
@@ -18,6 +18,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $("#id_skills").tagsinput()
+    $("#id_interests").tagsinput()
 });
 </script>
 

@@ -187,3 +187,5 @@ LOGOUT_REDIRECT_URL = "/"
 
 
 TAGGIT_CASE_INSENSITIVE = True
+MEDIA_ROOT = os.path.join(BASE_DIR, "people", "static", "images")
+MEDIA_URL = '/static/images/'

@@ -6,9 +6,13 @@ from django.db import models
 from autoslug import AutoSlugField
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
+from taggit.models import TaggedItemBase
 
 
 # Create your models here.
+class Taginterest(TaggedItemBase):
+    content_object = models.ForeignKey('Profile')
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -18,8 +22,8 @@ class Profile(models.Model):
     website = models.CharField(max_length=150, null=True, blank=True)
     contact_Email = models.EmailField(max_length=150, null=True, blank=True)
     avatar = models.ImageField(null=True, blank=True)
-    skills = TaggableManager()
-    interests = TaggableManager(related_name='+')
+    skills = TaggableManager(verbose_name="Skills")
+    interests = TaggableManager(through=Taginterest, related_name='profile_interests',verbose_name="Interests")
 
 
 

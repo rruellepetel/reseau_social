@@ -6,14 +6,19 @@
 
 {%block content%}
 <ul>
-    <li>{{object.user.username}}</li>
-    <li>{{object.address}}</li>
-    <li>{{object.zip_Code}}</li>
-    <li>{{object.website}}</li>
-    <li>{{object.interests}}</li>
-    <li>{% for skill in object.skills.all %} {{skill}} {% endfor %}</li>
+    <li><img src="{{object.avatar.url}}" alt=""></li>
+    <li><label>Pseudo : </label> {{object.user.username}}</li>
+    <li><label>Adresse : </label> {{object.address}}</li>
+    <li><label>Code postal : </label> {{object.zip_Code}}</li>
+    <li><label>Site web : </label> {{object.website}}</li>
+    <li><label>Skills : </label> {% for skill in object.skills.all %}
+        {{skill}}
+        {% endfor %}</li>
+    <li><label>Interêts : </label> {% for interest in object.interests.all %}
+            {{interest}}
+        {% endfor %}</li>
 
-    <li>{{object.city}}</li>
+    <li><label>Ville : </label> {{object.city}}</li>
 </ul>
 
 <a href="{% url 'profile-update' request.user.username %}">Editationnage</a>
