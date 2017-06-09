@@ -19,7 +19,8 @@ class Profile(models.Model):
     contact_Email = models.EmailField(max_length=150, null=True, blank=True)
     avatar = models.ImageField(null=True, blank=True)
     skills = TaggableManager()
-    interests = models.CharField(max_length=1000, null=True, blank=True)
+    interests = TaggableManager(related_name='+')
+
 
 
 @receiver(post_save, sender=User)

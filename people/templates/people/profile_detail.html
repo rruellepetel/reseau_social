@@ -11,7 +11,8 @@
     <li>{{object.zip_Code}}</li>
     <li>{{object.website}}</li>
     <li>{{object.interests}}</li>
-    <li>{{object.skills}}</li>
+    <li>{% for skill in object.skills.all %} {{skill}} {% endfor %}</li>
+
     <li>{{object.city}}</li>
 </ul>
 
