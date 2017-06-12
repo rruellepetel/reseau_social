@@ -30,4 +30,4 @@ class Profile(models.Model):
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
-       Profile.objects.create(user=instance)
+       Profile.get_or_create(user=instance)
