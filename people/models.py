@@ -24,10 +24,3 @@ class Profile(models.Model):
     avatar = models.ImageField(null=True, blank=True)
     skills = TaggableManager(verbose_name="Skills")
     interests = TaggableManager(through=Taginterest, related_name='profile_interests',verbose_name="Interests")
-
-
-
-@receiver(post_save, sender=User)
-def create_profile(sender, instance, created, **kwargs):
-    if created:
-       Profile.get_or_create(user=instance)
