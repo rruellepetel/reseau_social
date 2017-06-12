@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from .models import Profile
 
 
+
 # Register your models here.
 
 class ProfileInline(admin.StackedInline):
@@ -16,7 +17,7 @@ class ProfileInline(admin.StackedInline):
     verbose_name_plural = 'profiles'
 
 class UserAdmin(BaseUserAdmin):
-    inlines = (ProfileInline, )
+    inlines = (ProfileInline,)
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
