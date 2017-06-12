@@ -6,12 +6,13 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 from .models import Profile
+from leaflet.admin import LeafletGeoAdminMixin
 
 
 
 # Register your models here.
 
-class ProfileInline(admin.StackedInline):
+class ProfileInline(LeafletGeoAdminMixin,admin.StackedInline):
     model = Profile
     can_delete = False
     verbose_name_plural = 'profiles'
