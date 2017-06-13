@@ -45,3 +45,9 @@ class ProfileUpdate(UpdateView):
 
     def get_success_url(self):
         return reverse('profile-detail', kwargs={'slug' : self.object.user.username})
+
+
+class ProfileMapView(ListView):
+    model = Profile
+    context_object_name = "profiles"
+    template_name = "people/profile_map.html"
