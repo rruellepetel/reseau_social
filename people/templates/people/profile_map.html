@@ -11,7 +11,7 @@
 
 {% leaflet_js %}
 {% leaflet_css %}
-{% leaflet_map "main" callback="main_map_init" %}
+{% leaflet_map "yourmap" callback="window.map_init_basic" %}
 
 
 {% endblock content %}
@@ -19,21 +19,24 @@
 {% block extra_scripts %}
 
 <script type="text/javascript">
-        map.setView([51.505, -0.09], 13);
+function map_init_basic (map, options) {
+    map.setView([51.505, -0.09], 13);
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
 
 
-    {% for profile in profiles %}
-    {% if profile.point%}
-    L.marker([{{profile.point.y}},{{profile.point.x}}]).addTo(map)
-        .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-        .openPopup();
-    {% endif %}
-    {% endfor %}
+{% for profile in profiles %}
+{% if profile.point%}
+L.marker([parseFloat("{{profile.point.y}}".replace(",", ".")),parseFloat("{{profile.point.x}}".replace(",", "."))]).addTo(map)
+    .bindPopup('{{profile.user.username}}')
+    .openPopup();
+{% endif %}
+{% endfor %}
+
+   }
 
 </script>
 
