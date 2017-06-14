@@ -9,8 +9,6 @@ from django.views.generic.edit import UpdateView
 from django.http import JsonResponse
 
 
-# Create your views here.
-
 # def homepage(request):
 #
 #     return render(request, "homepage.html")
@@ -39,6 +37,24 @@ class ProfileListView(ListView):
     model = Profile
     context_object_name = "profiles"
 
+    def get_data(self, context):
+        data = {'profiles': []}
+        for profile in context['profiles']:
+            if profile.point :
+                profile_data = {
+                'username' : profile.user.username,
+                'lat' : profile.point.x,
+                'lng' : profile.point.y
+                }
+                data['profiles'].append(profile_data)
+        return data
+
+    def render_to_response(self, context, **response_kwargs):
+        if self.request.is_ajax():
+            return JsonResponse(self.get_data(context),**response_kwargs)
+        return ListView.render_to_response(self, context, **response_kwargs)
+
+
 
 class ProfileUpdate(UpdateView):
     model = Profile
@@ -53,26 +69,3 @@ class ProfileMapView(ListView):
     model = Profile
     context_object_name = "profiles"
     template_name = "people/profile_map.html"
-
-class ProfileListJsonView(ListView):
-    model = Profile
-    context_object_name = "profiles"
-
-    def get_data(self, context):
-        data = {'profiles': []}
-        for profile in context['profiles']:
-            if profile.point :
-                profile_data = {
-                'username' : profile.user.username,
-                'lat' : profile.point.x,
-                'lng' : profile.point.y
-                }
-                data['profiles'].append(profile_data)
-
-        return data
-
-    def render_to_response(self, context, **response_kwargs):
-        return JsonResponse(
-           self.get_data(context),
-           **response_kwargs
-       )

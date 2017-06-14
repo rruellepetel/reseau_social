@@ -20,7 +20,7 @@
 
 <script type="text/javascript">
 function map_init_basic (map, options) {
-   $.getJSON("{% url 'profile-json' %}", function(data){
+   $.getJSON("{% url 'profile-list' %}", function(data){
    $.each(data.profiles, function(index, profile){
       L.marker([profile.lat, profile.lng]).addTo(map)
       .bindPopup(profile.username)
@@ -28,6 +28,32 @@ function map_init_basic (map, options) {
    })
    })
 }
+
+var options = {
+	url: "resources/countries.json",
+
+	getValue: "name",
+
+	list: {
+		match: {
+			enabled: true
+		},
+		maxNumberOfElements: 5,
+
+		showAnimation: {
+			type: "fade"
+		},
+		hideAnimation: {
+			type: "fade"
+		}
+	},
+
+	theme: "funky"
+
+};
+
+$("#funky").easyAutocomplete(options);
+
 
 </script>
 

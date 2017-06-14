@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'taggit',
     'django.contrib.gis',
     'leaflet'
+
 ]
 
 MIDDLEWARE = [

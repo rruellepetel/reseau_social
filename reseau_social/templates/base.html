@@ -9,6 +9,8 @@
     <title>{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="{% sass_src 'sass/style.scss' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'bootstrap-tagsinput/dist/bootstrap-tagsinput.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'EasyAutocomplete/dist/easy-autocomplete.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'EasyAutocomplete/dist/easy-autocomplete.themes.css' %}" type="text/css">
 
 </head>
 
@@ -33,7 +35,6 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="{% url 'profile-list'  %}">Liste Des Profils <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">Pouet Pouet</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right vertical-center">
                             {% if request.user.is_authenticated %}
@@ -47,6 +48,8 @@
                                 <li><a href="{% url 'account_signup' %}">Register</a></li>
                                 <li><a href="{% url 'account_login' %}">login</a></li>
                                 {% endif %}
+                                <input id="funky" placeholder="Search"/>
+
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </div><!-- /.container-fluid -->
@@ -66,6 +69,7 @@
         <script src="{% static 'jquery/dist/jquery.js' %}" charset="utf-8"></script>
         <script src="{% static 'bootstrap-sass/assets/javascripts/bootstrap.min.js' %}" charset="utf-8"></script>
         <script src="{% static 'bootstrap-tagsinput/dist/bootstrap-tagsinput.js' %}" charset="utf-8"></script>
+        <script src="{% static 'EasyAutocomplete/dist/jquery.easy-autocomplete.js' %}" charset="utf-8"></script>
         {% block extra_scripts %}
         {% endblock extra_scripts %}
     </body>
