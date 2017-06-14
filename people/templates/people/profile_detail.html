@@ -6,7 +6,9 @@
 
 {%block content%}
 <ul>
+    {% if object.avatar %}
     <li><img src="{{object.avatar.url}}" alt=""></li>
+    {% endif %}
     <li><label>Pseudo : </label> {{object.user.username}}</li>
     <li><label>Adresse : </label> {{object.address}}</li>
     <li><label>Code postal : </label> {{object.zip_Code}}</li>

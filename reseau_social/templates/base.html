@@ -48,7 +48,7 @@
                                 <li><a href="{% url 'account_signup' %}">Register</a></li>
                                 <li><a href="{% url 'account_login' %}">login</a></li>
                                 {% endif %}
-                                <input id="funky" placeholder="Search"/>
+                                <li><input id="funky" placeholder="Search"/></li>
 
                             </ul>
                         </div><!-- /.navbar-collapse -->
@@ -70,6 +70,43 @@
         <script src="{% static 'bootstrap-sass/assets/javascripts/bootstrap.min.js' %}" charset="utf-8"></script>
         <script src="{% static 'bootstrap-tagsinput/dist/bootstrap-tagsinput.js' %}" charset="utf-8"></script>
         <script src="{% static 'EasyAutocomplete/dist/jquery.easy-autocomplete.js' %}" charset="utf-8"></script>
+        <script type="text/javascript">
+        var options = {
+            url: "{% url 'profile-list' %}",
+            listLocation : "profiles",
+            getValue: "username",
+
+
+            template: {
+                type: "links",
+                fields: {
+                    link: "link"
+                }
+            },
+
+
+            list: {
+                match: {
+                    enabled: true
+                },
+                maxNumberOfElements: 5,
+
+                showAnimation: {
+                    type: "fade"
+                },
+                hideAnimation: {
+                    type: "fade"
+                }
+            },
+
+            theme: "plate-dark"
+
+        };
+
+        $("#funky").easyAutocomplete(options);
+
+
+        </script>
         {% block extra_scripts %}
         {% endblock extra_scripts %}
     </body>

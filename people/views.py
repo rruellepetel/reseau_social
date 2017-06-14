@@ -44,7 +44,9 @@ class ProfileListView(ListView):
                 profile_data = {
                 'username' : profile.user.username,
                 'lat' : profile.point.x,
-                'lng' : profile.point.y
+                'lng' : profile.point.y,
+                'link': reverse('profile-detail', kwargs={'slug' : profile.user.username})
+
                 }
                 data['profiles'].append(profile_data)
         return data
