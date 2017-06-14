@@ -94,7 +94,7 @@ DATABASES = {
 
         'NAME': 'django_rs',
 
-        'USER': 'keiko34',
+        'USER': 'zazou89',
 
         'PASSWORD': 'plop',
 
