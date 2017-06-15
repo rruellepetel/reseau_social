@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'taggit',
     'django.contrib.gis',
-    'leaflet'
+    'leaflet',
+    'parler'
 
 ]
 
@@ -218,3 +219,17 @@ MEDIA_URL = '/static/images/'
 LOCALE_PATHS = [
     os.path.join(BASE_DIR,"locale")
 ]
+
+PARLER_DEFAULT_LANGUAGE_CODE = 'fr'
+
+PARLER_LANGUAGES = {
+    1: (
+        {'code': 'en',},
+        {'code': 'es',},
+        {'code': 'fr',},
+    ),
+    'default': {
+        'fallbacks': ['en'],          # defaults to PARLER_DEFAULT_LANGUAGE_CODE
+        'hide_untranslated': False,   # the default; let .active_translations() return fallbacks too.
+    }
+}
