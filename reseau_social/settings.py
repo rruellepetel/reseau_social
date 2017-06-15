@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -95,7 +97,7 @@ DATABASES = {
 
         'NAME': 'django_rs',
 
-        'USER': 'zazou89',
+        'USER': 'keiko34',
 
         'PASSWORD': 'plop',
 
@@ -132,6 +134,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'fr-FR'
+
+# LANGUAGES = [
+#     ('en', _('English')),
+#     ('fr', _('French')),
+#     ('es', _('Spanish')),
+# ]
 
 TIME_ZONE = 'CET'
 
@@ -206,3 +214,7 @@ LOGOUT_REDIRECT_URL = "/"
 TAGGIT_CASE_INSENSITIVE = True
 MEDIA_ROOT = os.path.join(BASE_DIR, "people", "static", "images")
 MEDIA_URL = '/static/images/'
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR,"locale")
+]

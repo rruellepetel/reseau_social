@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
 from django.contrib.gis.db import models as geomodels
+from django.utils.translation import ugettext as _
 
 # Create your models here.
 class Taginterest(TaggedItemBase):
@@ -15,14 +16,14 @@ class Taginterest(TaggedItemBase):
 
 
 class Profile(geomodels.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    address = models.CharField(max_length=100, null=True, blank=True)
-    zip_Code = models.CharField(max_length=5, null=True, blank=True)
-    city = models.CharField(max_length=75, null=True, blank=True)
-    website = models.CharField(max_length=150, null=True, blank=True)
-    contact_Email = models.EmailField(max_length=150, null=True, blank=True)
-    avatar = models.ImageField(null=True, blank=True)
-    skills = TaggableManager(verbose_name="Skills")
-    interests = TaggableManager(through=Taginterest, related_name='profile_interests',verbose_name="Interests")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name=_("user"))
+    address = models.CharField(max_length=100, null=True, blank=True, verbose_name=_("adresse"))
+    zip_Code = models.CharField(max_length=5, null=True, blank=True, verbose_name=_("code postal"))
+    city = models.CharField(max_length=75, null=True, blank=True, verbose_name=_("ville"))
+    website = models.CharField(max_length=150, null=True, blank=True, verbose_name=_("site web"))
+    contact_Email = models.EmailField(max_length=150, null=True, blank=True, verbose_name=_("email contact"))
+    avatar = models.ImageField(null=True, blank=True, verbose_name=_("avatar"))
+    skills = TaggableManager(verbose_name=_("Skills"))
+    interests = TaggableManager(through=Taginterest, related_name='profile_interests',verbose_name=_("Interests"))
 
-    point = geomodels.PointField(null=True)
+    point = geomodels.PointField(null=True, verbose_name=_("point"))
