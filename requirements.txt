@@ -19,7 +19,7 @@ pyparsing==2.2.0
 python-openid==2.2.5
 pytz==2017.2
 rcssmin==1.0.6
-requests==2.16.5
+requests==2.20.0
 requests-oauthlib==0.8.0
 rjsmin==1.0.12
 six==1.10.0
