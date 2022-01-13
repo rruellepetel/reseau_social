@@ -14,7 +14,7 @@ libsass==0.12.3
 oauthlib==2.0.2
 olefile==0.44
 packaging==16.8
-Pillow==4.1.1
+Pillow==9.0.0
 pyparsing==2.2.0
 python-openid==2.2.5
 pytz==2017.2
